@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func thicknessChange(_ sender: UISlider) {
+        print(sender.value)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
