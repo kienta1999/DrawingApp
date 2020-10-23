@@ -17,6 +17,11 @@ class PathView: UIView {
         // Drawing code
     }
     */
+    var thePath:Path? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     var paths: [Path] = [] {
         didSet {
@@ -54,15 +59,25 @@ class PathView: UIView {
     
     
     func drawPath(_ pathInfor: Path){
-        UIColor.green.setStroke()
+        pathInfor.color.setStroke()
         let points = pathInfor.points
         let path = createQuadPath(points: points)
-        path.stroke()
+        path.lineWidth = pathInfor.thickNess
+        if(pathInfor.points.count == 1){
+            //draw circle
+            
+        }
+        else{
+            path.stroke()
+        }
     }
     
     override func draw(_ rect: CGRect) {
         for path in paths {
             drawPath(path)
+        }
+        if(thePath != nil){
+            drawPath(thePath!)
         }
     }
 

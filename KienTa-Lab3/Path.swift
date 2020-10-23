@@ -11,5 +11,5 @@ import UIKit
 struct Path{
     var points: [CGPoint]
     var color: UIColor
-    var thickNess: Float
+    var thickNess: CGFloat
 }

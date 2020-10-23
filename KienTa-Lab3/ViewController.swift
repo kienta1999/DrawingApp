@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var currentPath: Path?
     var pathCanvas: PathView!
-    var points: [CGPoint] = []
+    var thickNess:CGFloat = 15
+    var allColor: [UIColor] = [.green, .systemIndigo, .orange, .red, .systemTeal, .yellow, .black]
+    var color:UIColor = .green
 
     @IBOutlet weak var DrawCanvasView: UIView!
     
@@ -20,48 +21,53 @@ class ViewController: UIViewController {
     
     @IBAction func clearScreen(_ sender: UIButton) {
         pathCanvas.paths.removeAll()
+        pathCanvas.thePath = nil
     }
     
     @IBAction func undoDraw(_ sender: UIButton) {
         if pathCanvas.paths.count > 0{
             pathCanvas.paths.remove(at: pathCanvas.paths.count - 1)
         }
+        pathCanvas.thePath = nil
     }
     
     
     @IBAction func thicknessChange(_ sender: UISlider) {
-        print(sender.value)
+        thickNess = CGFloat(sender.value * 30)
     }
+    
+    @IBAction func colorChange(_ sender: UIButton) {
+        color = allColor[sender.tag]
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        pathCanvas = PathView(frame: view.frame)
+        pathCanvas = PathView(frame: CGRect(x: 0, y: 0, width: DrawCanvasView.frame.width, height: DrawCanvasView.frame.height))
         //view.subviews[3].addSubview(pathCanvas)
         DrawCanvasView.addSubview(pathCanvas)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        points.removeAll()
-        guard let touchPoint = touches.first?.location(in: view) else { return }
+        guard let touchPoint = touches.first?.location(in: DrawCanvasView) else { return }
         //print("start at \(touchPoint)")
-        points.append(touchPoint)
-        currentPath = nil
+        pathCanvas.thePath = Path(points: [], color: color, thickNess: thickNess)
+        pathCanvas.thePath!.points.append(touchPoint)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touchPoint = touches.first?.location(in: view) else { return }
+        guard let touchPoint = touches.first?.location(in: DrawCanvasView) else { return }
         //print("move to \(String(describing: touchPoint))");
-        points.append(touchPoint)
+        pathCanvas.thePath!.points.append(touchPoint)
         
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touchPoint = touches.first?.location(in: view) else { return } 
+        guard let touchPoint = touches.first?.location(in: DrawCanvasView) else { return }
         //print("end at \(String(describing: touchPoint))");
-        points.append(touchPoint)
-        currentPath = Path(points: points, color: UIColor.green, thickNess: 1)
-        pathCanvas.paths.append(currentPath!)
+        pathCanvas.thePath!.points.append(touchPoint)
+        pathCanvas.paths.append(pathCanvas.thePath!)
         
     }
 
