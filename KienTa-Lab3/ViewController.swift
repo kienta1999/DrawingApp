@@ -14,11 +14,27 @@ class ViewController: UIViewController {
     var pathCanvas: PathView!
     var points: [CGPoint] = []
 
+    @IBOutlet weak var DrawCanvasView: UIView!
+    
+    @IBOutlet weak var thicknessSlider: UISlider!
+    
+    @IBAction func clearScreen(_ sender: UIButton) {
+        pathCanvas.paths.removeAll()
+    }
+    
+    @IBAction func undoDraw(_ sender: UIButton) {
+        if pathCanvas.paths.count > 0{
+            pathCanvas.paths.remove(at: pathCanvas.paths.count - 1)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         pathCanvas = PathView(frame: view.frame)
-        view.addSubview(pathCanvas)
+        //view.subviews[3].addSubview(pathCanvas)
+        DrawCanvasView.addSubview(pathCanvas)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
