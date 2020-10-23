@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC95D9072542FD3300B43A7C /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC95D9062542FD3300B43A7C /* PathView.swift */; };
+		AC95D9092542FDEC00B43A7C /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC95D9082542FDEC00B43A7C /* Path.swift */; };
 		ACAA87D12542C6F70079965D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAA87D02542C6F70079965D /* AppDelegate.swift */; };
 		ACAA87D32542C6F70079965D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAA87D22542C6F70079965D /* SceneDelegate.swift */; };
 		ACAA87D52542C6F70079965D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAA87D42542C6F70079965D /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC95D9062542FD3300B43A7C /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
+		AC95D9082542FDEC00B43A7C /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		ACAA87CD2542C6F70079965D /* KienTa-Lab3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KienTa-Lab3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACAA87D02542C6F70079965D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACAA87D22542C6F70079965D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,10 +63,12 @@
 				ACAA87D02542C6F70079965D /* AppDelegate.swift */,
 				ACAA87D22542C6F70079965D /* SceneDelegate.swift */,
 				ACAA87D42542C6F70079965D /* ViewController.swift */,
+				AC95D9062542FD3300B43A7C /* PathView.swift */,
 				ACAA87D62542C6F70079965D /* Main.storyboard */,
 				ACAA87D92542C6F80079965D /* Assets.xcassets */,
 				ACAA87DB2542C6F80079965D /* LaunchScreen.storyboard */,
 				ACAA87DE2542C6F80079965D /* Info.plist */,
+				AC95D9082542FDEC00B43A7C /* Path.swift */,
 			);
 			path = "KienTa-Lab3";
 			sourceTree = "<group>";
@@ -139,7 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACAA87D52542C6F70079965D /* ViewController.swift in Sources */,
+				AC95D9072542FD3300B43A7C /* PathView.swift in Sources */,
 				ACAA87D12542C6F70079965D /* AppDelegate.swift in Sources */,
+				AC95D9092542FDEC00B43A7C /* Path.swift in Sources */,
 				ACAA87D32542C6F70079965D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
