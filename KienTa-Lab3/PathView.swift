@@ -63,9 +63,11 @@ class PathView: UIView {
         let points = pathInfor.points
         let path = createQuadPath(points: points)
         path.lineWidth = pathInfor.thickNess
-        if(pathInfor.points.count == 1){
-            //draw circle
-            
+        if(points.count == 1 || points.count == 2){
+            pathInfor.color.setFill()
+            let circleCenter:CGPoint = points[0]
+            let circlePath = UIBezierPath(arcCenter: CGPoint(x: circleCenter.x, y: circleCenter.y), radius: pathInfor.thickNess / 2, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+            circlePath.fill()
         }
         else{
             path.stroke()

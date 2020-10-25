@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var thickNess:CGFloat = 15
     var allColor: [UIColor] = [.green, .systemIndigo, .orange, .red, .systemTeal, .yellow, .black]
     var color:UIColor = .green
+    var removedPaths:[Path] = []
 
     @IBOutlet weak var DrawCanvasView: UIView!
     
@@ -26,10 +27,21 @@ class ViewController: UIViewController {
     
     @IBAction func undoDraw(_ sender: UIButton) {
         if pathCanvas.paths.count > 0{
-            pathCanvas.paths.remove(at: pathCanvas.paths.count - 1)
+            let removedPath = pathCanvas.paths.remove(at: pathCanvas.paths.count - 1)
+            removedPaths.append(removedPath)
+            print(removedPaths.count)
         }
         pathCanvas.thePath = nil
     }
+    
+    
+    @IBAction func redoDraw(_ sender: UIButton) {
+        if(removedPaths.count > 0){
+            pathCanvas.paths.append(removedPaths.remove(at: removedPaths.count - 1))
+        }
+        
+    }
+    
     
     
     @IBAction func thicknessChange(_ sender: UISlider) {
@@ -54,6 +66,7 @@ class ViewController: UIViewController {
         //print("start at \(touchPoint)")
         pathCanvas.thePath = Path(points: [], color: color, thickNess: thickNess)
         pathCanvas.thePath!.points.append(touchPoint)
+        removedPaths = []
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
