@@ -12,4 +12,5 @@ struct Path{
     var points: [CGPoint]
     var color: UIColor
     var thickNess: CGFloat
+    var opacity:CGFloat
 }

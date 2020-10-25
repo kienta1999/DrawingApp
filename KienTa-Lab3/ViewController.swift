@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     var pathCanvas: PathView!
     var thickNess:CGFloat = 15
+    var opacity:CGFloat = 1
     var allColor: [UIColor] = [.green, .systemIndigo, .orange, .red, .systemTeal, .yellow, .black]
     var color:UIColor = .green
     var removedPaths:[Path] = []
@@ -43,9 +44,21 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func opacityChange(_ sender: UISlider) {
+        opacity = CGFloat(sender.value)
+    }
     
     @IBAction func thicknessChange(_ sender: UISlider) {
         thickNess = CGFloat(sender.value * 30)
+    }
+    
+    
+    @IBAction func saveImage(_ sender: UIButton) {
+        UIGraphicsBeginImageContext(pathCanvas.bounds.size)
+        pathCanvas.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
     }
     
     @IBAction func colorChange(_ sender: UIButton) {
@@ -64,7 +77,7 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touchPoint = touches.first?.location(in: DrawCanvasView) else { return }
         //print("start at \(touchPoint)")
-        pathCanvas.thePath = Path(points: [], color: color, thickNess: thickNess)
+        pathCanvas.thePath = Path(points: [], color: color, thickNess: thickNess, opacity: opacity)
         pathCanvas.thePath!.points.append(touchPoint)
         removedPaths = []
     }
