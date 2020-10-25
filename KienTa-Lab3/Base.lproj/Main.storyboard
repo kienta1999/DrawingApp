@@ -26,6 +26,9 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="colorChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xu7-lS-hzv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpq-ZN-hIs">
                                         <rect key="frame" x="53.666666666666657" y="0.0" width="33.333333333333343" height="30"/>
@@ -144,7 +147,6 @@
                                         <rect key="frame" x="225.66666666666663" y="0.0" width="141.33333333333337" height="31"/>
                                         <connections>
                                             <action selector="opacityChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="cJS-FM-8Nf"/>
-                                            <action selector="thicknessChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="eeZ-gU-Ktu"/>
                                         </connections>
                                     </slider>
                                 </subviews>

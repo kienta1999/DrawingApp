@@ -30,14 +30,14 @@ class ViewController: UIViewController {
         if pathCanvas.paths.count > 0{
             let removedPath = pathCanvas.paths.remove(at: pathCanvas.paths.count - 1)
             removedPaths.append(removedPath)
-            print(removedPaths.count)
+            //print(removedPaths.count)
         }
         pathCanvas.thePath = nil
     }
     
     
     @IBAction func redoDraw(_ sender: UIButton) {
-        if(removedPaths.count > 0){
+        if removedPaths.count > 0{
             pathCanvas.paths.append(removedPaths.remove(at: removedPaths.count - 1))
         }
         
