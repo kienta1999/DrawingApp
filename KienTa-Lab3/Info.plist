@@ -2,6 +2,33 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>UIApplicationShortcutItems</key>
+    <array>
+        <dict>
+            <key>UIApplicationShortcutItemType</key>
+            <string>kien.KienTa-Lab3.red</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>DrawRed</string>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemType</key>
+            <string>kien.KienTa-Lab3.yellow</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>DrawYellow</string>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemType</key>
+            <string>kien.KienTa-Lab3.blue</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>DrawBlue</string>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemType</key>
+            <string>kien.KienTa-Lab3.black</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>DrawBlack</string>
+        </dict>
+    </array>
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>Allows the application to write photos to save screenshots</string>
 	<key>CFBundleDevelopmentRegion</key>
