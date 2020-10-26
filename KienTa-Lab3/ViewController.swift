@@ -78,22 +78,30 @@ class ViewController: UIViewController {
         guard let touchPoint = touches.first?.location(in: DrawCanvasView) else { return }
         //print("start at \(touchPoint)")
         pathCanvas.thePath = Path(points: [], color: color, thickNess: thickNess, opacity: opacity)
-        pathCanvas.thePath!.points.append(touchPoint)
+        if var currentPath = pathCanvas.thePath {
+            currentPath.points.append(touchPoint)
+            pathCanvas.thePath = currentPath
+        }
         removedPaths = []
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touchPoint = touches.first?.location(in: DrawCanvasView) else { return }
         //print("move to \(String(describing: touchPoint))");
-        pathCanvas.thePath!.points.append(touchPoint)
-        
+        if var currentPath = pathCanvas.thePath {
+            currentPath.points.append(touchPoint)
+            pathCanvas.thePath = currentPath
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touchPoint = touches.first?.location(in: DrawCanvasView) else { return }
         //print("end at \(String(describing: touchPoint))");
-        pathCanvas.thePath!.points.append(touchPoint)
-        pathCanvas.paths.append(pathCanvas.thePath!)
+        if var currentPath = pathCanvas.thePath{
+            currentPath.points.append(touchPoint)
+            pathCanvas.paths.append(currentPath)
+            pathCanvas.thePath = currentPath
+        }
         
     }
 
